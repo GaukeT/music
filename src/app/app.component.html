@@ -13,7 +13,7 @@
   <br>
 
   <!-- Determine the Key -->
-  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="{{ selected }}">
+  <mat-button-toggle-group name="fontStyle" aria-label="Font Style" value="{{ notes[selected] }}">
       <mat-button-toggle *ngFor="let note of notes" value="{{note}}" (click)="setValue(note)">{{note}}</mat-button-toggle>
   </mat-button-toggle-group>
   <br>
