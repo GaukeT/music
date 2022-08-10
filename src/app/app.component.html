@@ -6,7 +6,7 @@
     <mat-slide-toggle [checked]="useSharps" (toggleChange)="setUseSharps()">
       flat / sharp
     </mat-slide-toggle>
-    <mat-slide-toggle [checked]="true" [disabled]="true">
+    <mat-slide-toggle [checked]="useMajor" (toggleChange)="setUseMajor()">
       minor / major
     </mat-slide-toggle>
   </span>
@@ -17,7 +17,8 @@
       <mat-button-toggle *ngFor="let note of notes" value="{{note}}" (click)="setValue(note)">{{note}}</mat-button-toggle>
   </mat-button-toggle-group>
   <br>
-  <p>Chords in major key</p>
+  <p *ngIf="useMajor">Chords in the key of {{notes[selected]}} major</p>
+  <p *ngIf="!useMajor">Chords in the key of {{notes[selected]}} natural minor</p>
   <table>
     <thead><tr>
       <th>I</th>
