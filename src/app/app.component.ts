@@ -22,6 +22,13 @@ export class AppComponent implements OnInit {
   minorPattern: string[] = ['i','ii','III','iv','v','VI','VII'];
   selectedPattern: string[] = [];
 
+  examples: Example[] = [
+    { progression: "I I I I / IV IV I I / V IV I I ", name: "12 Bar Blues" },
+    { progression: "I V vi iii / IV I IV V ", name: "Canon" },
+    { progression: "I V vi IV ", name: "I-V-vi-IV" }
+  ];
+  selectedExample: string = '';
+
   progression = '';
   created = ''; 
     
@@ -91,6 +98,7 @@ export class AppComponent implements OnInit {
       });
     } else {
       this.created = '';
+      this.selectedExample = '';
     }
   }
 
@@ -131,4 +139,14 @@ export class AppComponent implements OnInit {
       this.progression += '/ '
     }
   }
+
+  viewExample(selected: string): void {
+    this.progression = selected;
+    this.progressionOnChange();
+  }
+}
+
+interface Example {
+  progression: string;
+  name: string;
 }

@@ -1,9 +1,15 @@
 .content {
     display: flex;  
-    margin: 32px auto 32px;
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+.progressions-section {
+    margin: 32px auto 32px;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
 }
 
 table {
@@ -24,6 +30,10 @@ mat-slide-toggle {
 
 .input-chord-progression {
     min-width: 280px;
+}
+
+select {
+    margin-top: 32px;
 }
 
 button {
