@@ -21,22 +21,22 @@
   <p *ngIf="!useMajor">Chords in the key of {{notes[selected]}} natural minor</p>
   <table>
     <thead><tr>
-      <th>I</th>
-      <th>ii</th>
-      <th>iii</th>
-      <th>IV</th>
-      <th>V</th>
-      <th>vi</th>
-      <th>vii</th>
+      <th (click)="addChord('I')">I</th>
+      <th (click)="addChord('ii')">ii</th>
+      <th (click)="addChord('iii')">iii</th>
+      <th (click)="addChord('IV')">IV</th>
+      <th (click)="addChord('V')">V</th>
+      <th (click)="addChord('vi')">vi</th>
+      <th (click)="addChord('vii')">vii</th>
     </tr></thead>
     <tbody><tr>
-      <td>{{ chords[0] }}</td>
-      <td>{{ chords[1] }}</td>
-      <td>{{ chords[2] }}</td>
-      <td>{{ chords[3] }}</td>
-      <td>{{ chords[4] }}</td>
-      <td>{{ chords[5] }}</td>
-      <td>{{ chords[6] }}</td>
+      <td (click)="addChord('I')">{{ chords[0] }}</td>
+      <td (click)="addChord('ii')">{{ chords[1] }}</td>
+      <td (click)="addChord('iii')">{{ chords[2] }}</td>
+      <td (click)="addChord('IV')">{{ chords[3] }}</td>
+      <td (click)="addChord('V')">{{ chords[4] }}</td>
+      <td (click)="addChord('vi')">{{ chords[5] }}</td>
+      <td (click)="addChord('vii')">{{ chords[6] }}</td>
     </tr></tbody>
   </table> 
 
@@ -53,3 +53,5 @@
   <br><br>
   <p [innerHtml]="created"></p>
 </div>
+
+

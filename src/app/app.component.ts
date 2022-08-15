@@ -94,4 +94,9 @@ export class AppComponent implements OnInit {
 
     return '';
   }
+
+  addChord(chord: string) {
+    this.progression += chord + ' ';
+    this.progressionOnChange();
+  }
 }
