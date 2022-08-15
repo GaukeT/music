@@ -6,7 +6,11 @@ import { AppComponent } from './app.component';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -17,6 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonToggleModule,
     MatTableModule,
     MatSlideToggleModule,
+    MatInputModule,
+    MatIconModule,
+    FormsModule,
     BrowserAnimationsModule
   ],
   providers: [],

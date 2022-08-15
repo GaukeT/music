@@ -39,4 +39,17 @@
       <td>{{ chords[6] }}</td>
     </tr></tbody>
   </table> 
+
+  <br><br>
+  <mat-form-field class="input-chord-progression" appearance="standard">
+    <mat-label>Create your chord progression</mat-label>
+    <input matInput type="text" [(ngModel)]="progression" (input)="progressionOnChange()">
+    <mat-hint align="start">e.g. I IV iii V</mat-hint>
+    <mat-hint align="end">use space to separate chords<br> use / for new line</mat-hint>
+    <button *ngIf="progression" mat-button matSuffix aria-label="Clear" (click)="progression=''; created=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <br><br>
+  <p [innerHtml]="created"></p>
 </div>

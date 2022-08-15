@@ -21,3 +21,7 @@ td, th {
 mat-slide-toggle {
     padding-left: 24px;
 }
+
+.input-chord-progression {
+    min-width: 240px;
+}
