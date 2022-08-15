@@ -89,6 +89,8 @@ export class AppComponent implements OnInit {
       splitted.forEach(c => {
         this.created += this.findChord(c) + ' | ';
       });
+    } else {
+      this.created = '';
     }
   }
 
