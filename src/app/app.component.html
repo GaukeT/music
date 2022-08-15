@@ -31,21 +31,23 @@
   <div class="progressions-section">
     <div class="content">
       <!-- Create chord progression -->
-      <mat-form-field class="input-chord-progression" appearance="standard">
-        <mat-label>Create your own chord progression</mat-label>
-        <input matInput type="text" [(ngModel)]="progression" (input)="progressionOnChange()">
-        <mat-hint align="start">e.g. I V vi IV</mat-hint>
-        <mat-hint align="end">use space to separate chords<br> use / for new line</mat-hint>
-        <button disabled *ngIf="progression" mat-button matSuffix aria-label="Save" (click)="saveProgression()">
+      <span>
+        <mat-form-field class="input-chord-progression" appearance="standard">
+          <mat-label>Create your own chord progression</mat-label>
+          <input matInput type="text" [(ngModel)]="progression" (input)="progressionOnChange()">
+          <mat-hint align="start">e.g. I V vi IV</mat-hint>
+          <mat-hint align="end">use space to separate chords<br> use / for new line</mat-hint>
+        </mat-form-field>
+        <button disabled mat-button matSuffix aria-label="Save" (click)="saveProgression()">
           <mat-icon>done</mat-icon>
         </button>
-        <button *ngIf="progression" mat-button matSuffix aria-label="Clear" (click)="progression=''; created=''; selectedExample=''">
+        <button [disabled]="!progression" mat-button matSuffix aria-label="Clear" (click)="progression=''; created=''; selectedExample=''">
           <mat-icon>close</mat-icon>
         </button>
-        <button *ngIf="progression" mat-button matSuffix aria-label="/" (click)="addLineBreak()">
-          <mat-icon>/</mat-icon>
+        <button [disabled]="!progression" mat-button matSuffix aria-label="Enter" (click)="addLineBreak()">
+          <mat-icon>subdirectory_arrow_left</mat-icon>
         </button>
-      </mat-form-field>
+      </span>
 
       <br><br>
       <h3 [innerHtml]="created"></h3>
