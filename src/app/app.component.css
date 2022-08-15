@@ -23,5 +23,9 @@ mat-slide-toggle {
 }
 
 .input-chord-progression {
-    min-width: 240px;
+    min-width: 280px;
+}
+
+button {
+    margin-left: 4px
 }

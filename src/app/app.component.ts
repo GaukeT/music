@@ -82,12 +82,14 @@ export class AppComponent implements OnInit {
 
   // user types roman numerals 1-7 
   progressionOnChange(): void {
-    this.created = '';
+    if (this.progression) {
+      this.created = '| ';
 
-    let splitted = this.progression.trim().split(' ');
-    splitted.forEach(c => {
-      this.created += this.findChord(c) + ' ';
-    });
+      let splitted = this.progression.trim().split(' ');
+      splitted.forEach(c => {
+        this.created += this.findChord(c) + ' | ';
+      });
+    }
   }
 
   // converts roman numeral to chord
@@ -118,5 +120,13 @@ export class AppComponent implements OnInit {
 
     this.progression += chord + ' ';
     this.progressionOnChange();
+  }
+
+  addLineBreak(): void {
+    if (this.progression.endsWith('/ ')) {
+      this.progression = this.progression.slice(0, -1) + '/ '
+    } else {
+      this.progression += '/ '
+    }
   }
 }

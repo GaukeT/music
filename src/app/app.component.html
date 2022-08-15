@@ -38,10 +38,13 @@
     <button *ngIf="progression" mat-button matSuffix aria-label="Clear" (click)="progression=''; created=''">
       <mat-icon>close</mat-icon>
     </button>
+    <button *ngIf="progression" mat-button matSuffix aria-label="/" (click)="addLineBreak()">
+      <mat-icon>/</mat-icon>
+    </button>
   </mat-form-field>
 
   <br><br>
-  <p [innerHtml]="created"></p>
+  <h3 [innerHtml]="created"></h3>
 </div>
 
 
