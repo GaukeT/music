@@ -12,10 +12,15 @@ export class AppComponent implements OnInit {
   useSharps: boolean = false;
   useMajor: boolean = true;
   minorMajor = this.calculateMajorKey;
+  selectedKey: string = 'major';
   sharps: string[] = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#'];
   flats: string[] = ['A','B♭','B','C','D♭','D','E♭','E','F','G♭','G','A♭'];
   notes: string[] = [];
   chords: string[] = [];
+
+  majorPattern: string[] = ['I','ii','iii','IV','V','vi','vii'];
+  minorPattern: string[] = ['i','ii','III','iv','v','VI','VII'];
+  selectedPattern: string[] = [];
 
   progression = '';
   created = ''; 
@@ -24,26 +29,33 @@ export class AppComponent implements OnInit {
     this.setUseSharps();
   }
 
+  // user uses flat / sharp toggle
   setUseSharps(): void {
     this.useSharps = !this.useSharps;
     this.notes = this.useSharps ? this.sharps : this.flats;
-    this.update(this.selected);
+    this.update();
   }
 
+  // user uses minor / major toggle
   setUseMajor(): void {
     this.useMajor = !this.useMajor;
     this.minorMajor = this.useMajor ? this.calculateMajorKey : this.calculateMinorKey;
-    this.update(this.selected);
+    this.update();
   }
 
+  // user makes choice
   setValue(value: string): void {
     this.selected = this.notes.indexOf(value);
-    this.update(this.selected);
+    this.update();
   }
 
-  update(value: number): void {
+  // updates data on switch
+  update(): void {
     this.minorMajor(this.selected);
     this.progressionOnChange();
+    
+    this.selectedKey = this.useMajor ? 'major' : 'natural minor';
+    this.selectedPattern = this.useMajor ? this.majorPattern : this.minorPattern;
   }
   
   calculateMajorKey(selected: number): void {
@@ -68,17 +80,17 @@ export class AppComponent implements OnInit {
     this.chords[6] = this.notes[(selected + 10) % 12];
   }
 
+  // user types roman numerals 1-7 
   progressionOnChange(): void {
     this.created = '';
 
-    let splitted = this.progression.split(' ');
+    let splitted = this.progression.trim().split(' ');
     splitted.forEach(c => {
-      if (c !== '') {
-        this.created += this.findChord(c) + ' ';
-      }
+      this.created += this.findChord(c) + ' ';
     });
   }
 
+  // converts roman numeral to chord
   findChord(chord: string): string {
     switch(chord.toLowerCase()) {
       case 'i': return this.chords[0];
@@ -95,7 +107,15 @@ export class AppComponent implements OnInit {
     return '';
   }
 
-  addChord(chord: string) {
+  // user clicks on chords in key
+  addChord(chord: string): void {
+    if (chord.match("(^[a-gA-G][#♭m°]{0,2}$)")) {
+      let index = this.chords.indexOf(chord);
+      if (index >= 0) {
+        chord = this.selectedPattern[index];
+      }
+    }
+
     this.progression += chord + ' ';
     this.progressionOnChange();
   }
