@@ -20,7 +20,7 @@ git checkout main
 git pull
 
 # Build production version
-npm install
+npm ci
 ng build
 
 # Checkout gh-pages
