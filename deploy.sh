@@ -1,5 +1,4 @@
 #!/bin/bash
-# ng deploy --base-href=/music/
 
 # Show status git working tree
 git status
@@ -29,6 +28,8 @@ git pull
 
 # Copy artifacts
 cp ./dist/*/* ./
+# Set base href
+sed -i 's|base href=\"\/\"|base href=\"\/music\/\"|g' ./index.html
 
 git add .
 git commit -m 'deploy new version'
