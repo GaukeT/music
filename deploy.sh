@@ -1,2 +1,40 @@
 #!/bin/bash
-ng deploy --base-href=/music/
+# ng deploy --base-href=/music/
+
+# Show status git working tree
+git status
+
+# Make sure git working tree is clean before proceed,
+# Otherwise it will be commited on the gh-pages branch.
+while true; do
+    read -p "Make sure your git working tree is clean before proceed [Y/n]" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+
+# Get latest version on main
+git checkout main
+git pull
+
+# Build production version
+npm install
+ng build
+
+# Checkout gh-pages
+git checkout gh-pages
+git pull
+
+# Copy artifacts
+cp ./dist/*/* ./
+
+git add .
+git commit -m 'deploy new version'
+git push
+
+sleep 5
+
+# return to main branch
+git checkout main
