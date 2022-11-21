@@ -44,9 +44,9 @@ export class AppComponent implements OnInit {
   ];
   selectedExample: string = '';
 
+  testvalue: string = 'clear';
   progression: string = '';
   created: string = ''; 
-  value = 'Clear me';
     
   ngOnInit(): void {
     this.setUseSharps();
@@ -154,6 +154,8 @@ export class AppComponent implements OnInit {
     } else {
       this.progression += '/ '
     }
+
+    this.progressionOnChange();
   }
 
   saveProgression(): void {
