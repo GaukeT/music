@@ -5,6 +5,11 @@
     width: 100%;
 }
 
+.options {
+    display: flex;
+    gap: 16px;
+}
+
 .progressions-section {
     margin: 32px auto 32px;
     display: flex;

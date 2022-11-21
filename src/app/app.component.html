@@ -3,14 +3,20 @@
   <h1>{{title}}</h1>
 
   <!-- Options -->
-  <span>
-    <mat-slide-toggle [checked]="useSharps" (toggleChange)="setUseSharps()">
-      flat / sharp
-    </mat-slide-toggle>
-    <mat-slide-toggle [checked]="useMajor" (toggleChange)="setUseMajor()">
-      minor / major
-    </mat-slide-toggle>
-  </span>
+  <div class="options">
+    <div>
+      <mat-button-toggle-group value="{{ useSharps }}">
+        <mat-button-toggle value="false" (click)="setUseSharps()">flat</mat-button-toggle>
+        <mat-button-toggle value="true" (click)="setUseSharps()">sharp</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div>
+      <mat-button-toggle-group value="{{ useMajor }}">
+        <mat-button-toggle value="false" (click)="setUseMajor()">minor</mat-button-toggle>
+        <mat-button-toggle value="true" (click)="setUseMajor()">major</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
   <br>
 
   <!-- Determine chords in key -->

@@ -27,6 +27,8 @@ git checkout gh-pages
 git pull
 
 # Copy artifacts
+rm *.js
+rm *.css
 cp ./dist/*/* ./
 # Set base href
 sed -i 's|base href=\"\/\"|base href=\"\/music\/\"|g' ./index.html
