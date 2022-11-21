@@ -44,8 +44,9 @@ export class AppComponent implements OnInit {
   ];
   selectedExample: string = '';
 
-  progression = '';
-  created = ''; 
+  progression: string = '';
+  created: string = ''; 
+  value = 'Clear me';
     
   ngOnInit(): void {
     this.setUseSharps();

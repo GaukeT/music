@@ -32,9 +32,9 @@
     <div class="content">
       <!-- Create chord progression -->
       <div>
-        <mat-form-field class="input-chord-progression" appearance="standard">
+        <mat-form-field class="input-chord-progression" appearance="fill">
           <mat-label>Create your own chord progression</mat-label>
-          <input matInput type="text" [(ngModel)]="progression" (input)="progressionOnChange()">
+          <input matInput [value]="progression" type="text" (input)="progressionOnChange()">
           <mat-hint align="start">e.g. I V vi IV</mat-hint>
           <mat-hint align="end">use space to separate chords<br> use / for new line</mat-hint>
         </mat-form-field>
@@ -58,14 +58,11 @@
     <!-- Example progressions -->
     <mat-form-field appearance="fill">
       <mat-label>Find an example</mat-label>
-      <mat-select [(ngModel)]="selectedExample" name="progression" (selectionChange)="viewExample(selectedExample)">
+      <mat-select [(value)]="selectedExample" name="progression" (selectionChange)="viewExample(selectedExample)">
         <mat-optgroup *ngFor="let group of examples" [label]="group.name">
           <mat-option *ngFor="let example of group.examples" [value]="example.progression">{{ example.name }}</mat-option>
         </mat-optgroup>
       </mat-select>
     </mat-form-field>
   </div>
-
 </div>
-
-
