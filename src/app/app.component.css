@@ -7,9 +7,13 @@
 
 .progressions-section {
     margin: 32px auto 32px;
-    width: 60%;
     display: flex;
     flex-direction: row;
+    gap: 16px;
+}
+
+.progression-buttons {
+    margin-top: 32px;
 }
 
 table {
