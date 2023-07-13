@@ -9,8 +9,8 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-  open-pull-request-limit: 8
-  groups:
-    dev-dependencies:
-      patterns:
-        - "*"
+    open-pull-request-limit:
+    groups:
+      dev-dependencies:
+        patterns:
+          - "*"
